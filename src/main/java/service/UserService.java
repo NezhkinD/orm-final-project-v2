@@ -2,13 +2,13 @@ package service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.example.learningplatform.entity.Profile;
-import org.example.learningplatform.entity.User;
-import org.example.learningplatform.entity.UserRole;
-import org.example.learningplatform.exception.DuplicateResourceException;
-import org.example.learningplatform.exception.ResourceNotFoundException;
-import org.example.learningplatform.repository.ProfileRepository;
-import org.example.learningplatform.repository.UserRepository;
+import entity.Profile;
+import entity.User;
+import entity.UserRole;
+import exception.DuplicateResourceException;
+import exception.ResourceNotFoundException;
+import repository.ProfileRepository;
+import repository.UserRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

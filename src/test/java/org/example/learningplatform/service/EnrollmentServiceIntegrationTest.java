@@ -1,10 +1,11 @@
 package org.example.learningplatform.service;
 
-import org.example.learningplatform.entity.*;
-import org.example.learningplatform.exception.BusinessException;
-import org.example.learningplatform.exception.DuplicateResourceException;
-import org.example.learningplatform.exception.ResourceNotFoundException;
-import org.example.learningplatform.repository.*;
+import entity.*;
+import exception.BusinessException;
+import exception.DuplicateResourceException;
+import exception.ResourceNotFoundException;
+import repository.*;
+import service.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

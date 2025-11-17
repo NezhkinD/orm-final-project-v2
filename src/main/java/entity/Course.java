@@ -7,7 +7,6 @@ import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import java.lang.Module;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -63,7 +62,7 @@ public class Course {
     @OneToMany(mappedBy = "course", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     @OrderBy("orderIndex ASC")
     @Builder.Default
-    private List<java.lang.Module> modules = new ArrayList<>();
+    private List<Module> modules = new ArrayList<>();
 
     // One-to-Many: One course has many enrollments
     @OneToMany(mappedBy = "course", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
@@ -98,7 +97,7 @@ public class Course {
     /**
      * Add a module to this course
      */
-    public void addModule(java.lang.Module module) {
+    public void addModule(Module module) {
         modules.add(module);
         module.setCourse(this);
     }

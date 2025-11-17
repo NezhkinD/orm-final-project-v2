@@ -1,6 +1,6 @@
 package repository;
 
-import org.example.learningplatform.entity.Submission;
+import entity.Submission;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

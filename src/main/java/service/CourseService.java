@@ -2,10 +2,10 @@ package service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.example.learningplatform.entity.*;
-import org.example.learningplatform.exception.BusinessException;
-import org.example.learningplatform.exception.ResourceNotFoundException;
-import org.example.learningplatform.repository.*;
+import entity.*;
+import exception.BusinessException;
+import exception.ResourceNotFoundException;
+import repository.*;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -165,13 +165,13 @@ public class CourseService {
      * Add module to course
      */
     @Transactional
-    public org.example.learningplatform.entity.Module addModuleToCourse(Long courseId, org.example.learningplatform.entity.Module module) {
+    public entity.Module addModuleToCourse(Long courseId, entity.Module module) {
         log.info("Adding module to course id: {}", courseId);
 
         Course course = getCourseById(courseId);
         module.setCourse(course);
 
-        org.example.learningplatform.entity.Module savedModule = moduleRepository.save(module);
+        entity.Module savedModule = moduleRepository.save(module);
         log.info("Module added successfully with id: {}", savedModule.getId());
         return savedModule;
     }
@@ -183,7 +183,7 @@ public class CourseService {
     public Lesson addLessonToModule(Long moduleId, Lesson lesson) {
         log.info("Adding lesson to module id: {}", moduleId);
 
-        org.example.learningplatform.entity.Module module = moduleRepository.findById(moduleId)
+        entity.Module module = moduleRepository.findById(moduleId)
                 .orElseThrow(() -> new ResourceNotFoundException("Module", moduleId));
         lesson.setModule(module);
 

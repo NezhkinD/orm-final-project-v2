@@ -1,9 +1,10 @@
 package org.example.learningplatform.service;
 
-import org.example.learningplatform.entity.*;
-import org.example.learningplatform.exception.DuplicateResourceException;
-import org.example.learningplatform.exception.ResourceNotFoundException;
-import org.example.learningplatform.repository.*;
+import entity.*;
+import exception.DuplicateResourceException;
+import exception.ResourceNotFoundException;
+import repository.*;
+import service.*;
 import org.hibernate.LazyInitializationException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

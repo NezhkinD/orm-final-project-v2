@@ -1,9 +1,10 @@
 package org.example.learningplatform.service;
 
-import org.example.learningplatform.entity.*;
-import org.example.learningplatform.exception.BusinessException;
-import org.example.learningplatform.exception.ResourceNotFoundException;
-import org.example.learningplatform.repository.*;
+import entity.*;
+import exception.BusinessException;
+import exception.ResourceNotFoundException;
+import repository.*;
+import service.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -139,14 +140,14 @@ class CourseServiceIntegrationTest {
         Course course = createTestCourse("Course with Modules");
         Course savedCourse = courseService.createCourse(course, teacher.getId(), category.getId());
 
-        org.example.learningplatform.entity.Module module1 = org.example.learningplatform.entity.Module.builder()
+        entity.Module module1 = entity.Module.builder()
                 .title("Module 1")
                 .description("First module")
                 .orderIndex(1)
                 .build();
         courseService.addModuleToCourse(savedCourse.getId(), module1);
 
-        org.example.learningplatform.entity.Module module2 = org.example.learningplatform.entity.Module.builder()
+        entity.Module module2 = entity.Module.builder()
                 .title("Module 2")
                 .description("Second module")
                 .orderIndex(2)
@@ -169,12 +170,12 @@ class CourseServiceIntegrationTest {
         Course savedCourse = courseService.createCourse(course, teacher.getId(), category.getId());
 
         // Add module
-        org.example.learningplatform.entity.Module module = org.example.learningplatform.entity.Module.builder()
+        entity.Module module = entity.Module.builder()
                 .title("Module 1")
                 .description("First module")
                 .orderIndex(1)
                 .build();
-        org.example.learningplatform.entity.Module savedModule = courseService.addModuleToCourse(savedCourse.getId(), module);
+        entity.Module savedModule = courseService.addModuleToCourse(savedCourse.getId(), module);
 
         // Add lesson to module
         Lesson lesson = Lesson.builder()
@@ -290,14 +291,14 @@ class CourseServiceIntegrationTest {
         Course course = createTestCourse("Course for Module");
         Course savedCourse = courseService.createCourse(course, teacher.getId(), category.getId());
 
-        org.example.learningplatform.entity.Module module = org.example.learningplatform.entity.Module.builder()
+        entity.Module module = entity.Module.builder()
                 .title("New Module")
                 .description("Module description")
                 .orderIndex(1)
                 .build();
 
         // When
-        org.example.learningplatform.entity.Module savedModule = courseService.addModuleToCourse(savedCourse.getId(), module);
+        entity.Module savedModule = courseService.addModuleToCourse(savedCourse.getId(), module);
 
         // Then
         assertThat(savedModule.getId()).isNotNull();
@@ -311,12 +312,12 @@ class CourseServiceIntegrationTest {
         Course course = createTestCourse("Course for Lesson");
         Course savedCourse = courseService.createCourse(course, teacher.getId(), category.getId());
 
-        org.example.learningplatform.entity.Module module = org.example.learningplatform.entity.Module.builder()
+        entity.Module module = entity.Module.builder()
                 .title("Module")
                 .description("Module desc")
                 .orderIndex(1)
                 .build();
-        org.example.learningplatform.entity.Module savedModule = courseService.addModuleToCourse(savedCourse.getId(), module);
+        entity.Module savedModule = courseService.addModuleToCourse(savedCourse.getId(), module);
 
         Lesson lesson = Lesson.builder()
                 .title("New Lesson")
@@ -390,7 +391,7 @@ class CourseServiceIntegrationTest {
             Course course = createTestCourse("Course with Lazy Modules");
             Course savedCourse = courseService.createCourse(course, teacher.getId(), category.getId());
 
-            org.example.learningplatform.entity.Module module1 = org.example.learningplatform.entity.Module.builder()
+            entity.Module module1 = entity.Module.builder()
                     .title("Lazy Module 1")
                     .description("First module")
                     .orderIndex(1)
@@ -425,14 +426,14 @@ class CourseServiceIntegrationTest {
             Course course = createTestCourse("Course for JOIN FETCH");
             Course savedCourse = courseService.createCourse(course, teacher.getId(), category.getId());
 
-            org.example.learningplatform.entity.Module module1 = org.example.learningplatform.entity.Module.builder()
+            entity.Module module1 = entity.Module.builder()
                     .title("Module 1")
                     .description("First module")
                     .orderIndex(1)
                     .build();
             courseService.addModuleToCourse(savedCourse.getId(), module1);
 
-            org.example.learningplatform.entity.Module module2 = org.example.learningplatform.entity.Module.builder()
+            entity.Module module2 = entity.Module.builder()
                     .title("Module 2")
                     .description("Second module")
                     .orderIndex(2)
@@ -466,14 +467,14 @@ class CourseServiceIntegrationTest {
         Course course = createTestCourse("Course within Transaction");
         Course savedCourse = courseService.createCourse(course, teacher.getId(), category.getId());
 
-        org.example.learningplatform.entity.Module module1 = org.example.learningplatform.entity.Module.builder()
+        entity.Module module1 = entity.Module.builder()
                 .title("Transactional Module 1")
                 .description("First module")
                 .orderIndex(1)
                 .build();
         courseService.addModuleToCourse(savedCourse.getId(), module1);
 
-        org.example.learningplatform.entity.Module module2 = org.example.learningplatform.entity.Module.builder()
+        entity.Module module2 = entity.Module.builder()
                 .title("Transactional Module 2")
                 .description("Second module")
                 .orderIndex(2)
@@ -504,12 +505,12 @@ class CourseServiceIntegrationTest {
             Course savedCourse = courseService.createCourse(course, teacher.getId(), category.getId());
 
             for (int j = 1; j <= 2; j++) {
-                org.example.learningplatform.entity.Module module = org.example.learningplatform.entity.Module.builder()
+                entity.Module module = entity.Module.builder()
                         .title("Module " + j + " of Course " + i)
                         .description("Module description")
                         .orderIndex(j)
                         .build();
-                org.example.learningplatform.entity.Module savedModule = courseService.addModuleToCourse(savedCourse.getId(), module);
+                entity.Module savedModule = courseService.addModuleToCourse(savedCourse.getId(), module);
 
                 for (int k = 1; k <= 2; k++) {
                     Lesson lesson = Lesson.builder()

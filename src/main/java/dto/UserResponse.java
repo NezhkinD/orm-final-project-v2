@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.example.learningplatform.entity.UserRole;
+import entity.UserRole;
 
 import java.time.LocalDateTime;
 

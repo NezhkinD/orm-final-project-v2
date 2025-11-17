@@ -2,16 +2,16 @@ package service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.example.learningplatform.entity.Assignment;
-import org.example.learningplatform.entity.Lesson;
-import org.example.learningplatform.entity.Submission;
-import org.example.learningplatform.entity.User;
-import org.example.learningplatform.exception.DuplicateResourceException;
-import org.example.learningplatform.exception.ResourceNotFoundException;
-import org.example.learningplatform.repository.AssignmentRepository;
-import org.example.learningplatform.repository.LessonRepository;
-import org.example.learningplatform.repository.SubmissionRepository;
-import org.example.learningplatform.repository.UserRepository;
+import entity.Assignment;
+import entity.Lesson;
+import entity.Submission;
+import entity.User;
+import exception.DuplicateResourceException;
+import exception.ResourceNotFoundException;
+import repository.AssignmentRepository;
+import repository.LessonRepository;
+import repository.SubmissionRepository;
+import repository.UserRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

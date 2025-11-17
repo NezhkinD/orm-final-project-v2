@@ -1,7 +1,7 @@
 package repository;
 
-import org.example.learningplatform.entity.Enrollment;
-import org.example.learningplatform.entity.EnrollmentStatus;
+import entity.Enrollment;
+import entity.EnrollmentStatus;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

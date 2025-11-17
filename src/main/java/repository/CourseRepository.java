@@ -1,6 +1,6 @@
 package repository;
 
-import org.example.learningplatform.entity.Course;
+import entity.Course;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -57,7 +57,7 @@ public interface CourseRepository extends JpaRepository<Course, Long> {
            "LEFT JOIN FETCH m.lessons " +
            "WHERE m.course.id = :courseId " +
            "ORDER BY m.orderIndex ASC")
-    List<org.example.learningplatform.entity.Module> findModulesWithLessonsByCourseId(@Param("courseId") Long courseId);
+    List<entity.Module> findModulesWithLessonsByCourseId(@Param("courseId") Long courseId);
 
     /**
      * Find course with teacher loaded

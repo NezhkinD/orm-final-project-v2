@@ -1,9 +1,10 @@
 package org.example.learningplatform.service;
 
-import org.example.learningplatform.entity.*;
-import org.example.learningplatform.exception.DuplicateResourceException;
-import org.example.learningplatform.exception.ResourceNotFoundException;
-import org.example.learningplatform.repository.*;
+import entity.*;
+import exception.DuplicateResourceException;
+import exception.ResourceNotFoundException;
+import repository.*;
+import service.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,7 +63,7 @@ class AssignmentServiceIntegrationTest {
     private User student;
     private User teacher;
     private Course course;
-    private org.example.learningplatform.entity.Module module;
+    private entity.Module module;
     private Lesson lesson;
 
     @BeforeEach
@@ -110,7 +111,7 @@ class AssignmentServiceIntegrationTest {
         course = courseService.createCourse(course, teacher.getId(), category.getId());
 
         // Create module
-        module = org.example.learningplatform.entity.Module.builder()
+        module = entity.Module.builder()
                 .title("Test Module")
                 .description("Test module description")
                 .orderIndex(1)

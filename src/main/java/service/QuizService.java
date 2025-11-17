@@ -2,11 +2,11 @@ package service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.example.learningplatform.entity.*;
-import org.example.learningplatform.exception.BusinessException;
-import org.example.learningplatform.exception.DuplicateResourceException;
-import org.example.learningplatform.exception.ResourceNotFoundException;
-import org.example.learningplatform.repository.*;
+import entity.*;
+import exception.BusinessException;
+import exception.DuplicateResourceException;
+import exception.ResourceNotFoundException;
+import repository.*;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -36,7 +36,7 @@ public class QuizService {
     public Quiz createQuiz(Long moduleId, Quiz quiz) {
         log.info("Creating quiz for module {}", moduleId);
 
-        org.example.learningplatform.entity.Module module = moduleRepository.findById(moduleId)
+        entity.Module module = moduleRepository.findById(moduleId)
                 .orElseThrow(() -> new ResourceNotFoundException("Module", moduleId));
 
         quiz.setModule(module);

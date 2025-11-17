@@ -2,9 +2,9 @@ package config;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.example.learningplatform.entity.*;
-import org.example.learningplatform.repository.*;
-import org.example.learningplatform.service.*;
+import entity.*;
+import repository.*;
+import service.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
@@ -144,12 +144,12 @@ public class DataInitializer implements CommandLineRunner {
         Course savedCourse = courseService.createCourse(course, teacher.getId(), category.getId());
 
         // Module 1: Java Basics
-        org.example.learningplatform.entity.Module module1 = org.example.learningplatform.entity.Module.builder()
+        entity.Module module1 = entity.Module.builder()
                 .title("Java Fundamentals")
                 .description("Learn the basics of Java programming")
                 .orderIndex(1)
                 .build();
-        org.example.learningplatform.entity.Module savedModule1 = courseService.addModuleToCourse(savedCourse.getId(), module1);
+        entity.Module savedModule1 = courseService.addModuleToCourse(savedCourse.getId(), module1);
 
         Lesson lesson1 = Lesson.builder()
                 .title("Introduction to Java")
@@ -170,12 +170,12 @@ public class DataInitializer implements CommandLineRunner {
         courseService.addLessonToModule(savedModule1.getId(), lesson2);
 
         // Module 2: OOP Concepts
-        org.example.learningplatform.entity.Module module2 = org.example.learningplatform.entity.Module.builder()
+        entity.Module module2 = entity.Module.builder()
                 .title("Object-Oriented Programming")
                 .description("Master OOP principles in Java")
                 .orderIndex(2)
                 .build();
-        org.example.learningplatform.entity.Module savedModule2 = courseService.addModuleToCourse(savedCourse.getId(), module2);
+        entity.Module savedModule2 = courseService.addModuleToCourse(savedCourse.getId(), module2);
 
         Lesson lesson3 = Lesson.builder()
                 .title("Classes and Objects")
@@ -200,12 +200,12 @@ public class DataInitializer implements CommandLineRunner {
         Course savedCourse = courseService.createCourse(course, teacher.getId(), category.getId());
 
         // Module 1
-        org.example.learningplatform.entity.Module module1 = org.example.learningplatform.entity.Module.builder()
+        entity.Module module1 = entity.Module.builder()
                 .title("Python Basics")
                 .description("Introduction to Python programming")
                 .orderIndex(1)
                 .build();
-        org.example.learningplatform.entity.Module savedModule1 = courseService.addModuleToCourse(savedCourse.getId(), module1);
+        entity.Module savedModule1 = courseService.addModuleToCourse(savedCourse.getId(), module1);
 
         Lesson lesson1 = Lesson.builder()
                 .title("Python Syntax and Basics")
@@ -217,12 +217,12 @@ public class DataInitializer implements CommandLineRunner {
         courseService.addLessonToModule(savedModule1.getId(), lesson1);
 
         // Module 2
-        org.example.learningplatform.entity.Module module2 = org.example.learningplatform.entity.Module.builder()
+        entity.Module module2 = entity.Module.builder()
                 .title("Data Analysis with Pandas")
                 .description("Learn data manipulation with Pandas library")
                 .orderIndex(2)
                 .build();
-        org.example.learningplatform.entity.Module savedModule2 = courseService.addModuleToCourse(savedCourse.getId(), module2);
+        entity.Module savedModule2 = courseService.addModuleToCourse(savedCourse.getId(), module2);
 
         Lesson lesson2 = Lesson.builder()
                 .title("Introduction to Pandas")
@@ -244,7 +244,7 @@ public class DataInitializer implements CommandLineRunner {
             return;
         }
 
-        org.example.learningplatform.entity.Module firstModule = fullCourse.getModules().get(0);
+        entity.Module firstModule = fullCourse.getModules().get(0);
         if (firstModule.getLessons().isEmpty()) {
             return;
         }
@@ -286,7 +286,7 @@ public class DataInitializer implements CommandLineRunner {
         }
 
         // Create quiz for Java course
-        org.example.learningplatform.entity.Module javaModule = javaFull.getModules().get(0);
+        entity.Module javaModule = javaFull.getModules().get(0);
 
         Quiz javaQuiz = Quiz.builder()
                 .title("Java Fundamentals Quiz")

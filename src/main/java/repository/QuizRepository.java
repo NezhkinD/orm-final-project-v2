@@ -1,6 +1,6 @@
 package repository;
 
-import org.example.learningplatform.entity.Quiz;
+import entity.Quiz;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -44,7 +44,7 @@ public interface QuizRepository extends JpaRepository<Quiz, Long> {
     @Query("SELECT DISTINCT qn FROM Question qn " +
            "LEFT JOIN FETCH qn.options " +
            "WHERE qn.quiz.id = :quizId")
-    List<org.example.learningplatform.entity.Question> findQuestionsWithOptionsByQuizId(@Param("quizId") Long quizId);
+    List<entity.Question> findQuestionsWithOptionsByQuizId(@Param("quizId") Long quizId);
 
     /**
      * Find quiz with submissions loaded

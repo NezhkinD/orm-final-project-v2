@@ -1,10 +1,10 @@
 package exception.handler;
 
+import dto.ErrorResponse;
+import exception.BusinessException;
+import exception.DuplicateResourceException;
+import exception.ResourceNotFoundException;
 import lombok.extern.slf4j.Slf4j;
-import org.example.learningplatform.dto.ErrorResponse;
-import org.example.learningplatform.exception.BusinessException;
-import org.example.learningplatform.exception.DuplicateResourceException;
-import org.example.learningplatform.exception.ResourceNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;

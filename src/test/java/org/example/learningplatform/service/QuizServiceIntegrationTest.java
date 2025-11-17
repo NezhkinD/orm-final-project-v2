@@ -1,9 +1,10 @@
 package org.example.learningplatform.service;
 
-import org.example.learningplatform.entity.*;
-import org.example.learningplatform.exception.DuplicateResourceException;
-import org.example.learningplatform.exception.ResourceNotFoundException;
-import org.example.learningplatform.repository.*;
+import entity.*;
+import exception.DuplicateResourceException;
+import exception.ResourceNotFoundException;
+import repository.*;
+import service.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -68,7 +69,7 @@ class QuizServiceIntegrationTest {
     private User student;
     private User teacher;
     private Course course;
-    private org.example.learningplatform.entity.Module module;
+    private entity.Module module;
 
     @BeforeEach
     void setUp() {
@@ -116,7 +117,7 @@ class QuizServiceIntegrationTest {
         course = courseService.createCourse(course, teacher.getId(), category.getId());
 
         // Create module
-        module = org.example.learningplatform.entity.Module.builder()
+        module = entity.Module.builder()
                 .title("Test Module")
                 .description("Test module description")
                 .orderIndex(1)
@@ -595,7 +596,7 @@ class QuizServiceIntegrationTest {
         // Given - create multiple quizzes with questions
         for (int i = 1; i <= 3; i++) {
             // Create a separate module for each quiz to avoid unique constraint violation
-            org.example.learningplatform.entity.Module newModule = org.example.learningplatform.entity.Module.builder()
+            entity.Module newModule = entity.Module.builder()
                     .title("N+1 Module " + i)
                     .orderIndex(i)
                     .build();
@@ -674,7 +675,7 @@ class QuizServiceIntegrationTest {
     // Helper method to create a quiz with 2 questions and answers
     private Quiz createQuizWithQuestions() {
         // Create a new module for each quiz to avoid unique constraint violation
-        org.example.learningplatform.entity.Module newModule = org.example.learningplatform.entity.Module.builder()
+        entity.Module newModule = entity.Module.builder()
                 .title("Module for Quiz " + System.nanoTime())
                 .orderIndex(1)
                 .build();
