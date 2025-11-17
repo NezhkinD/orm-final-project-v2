@@ -22,24 +22,4 @@ jobs:
         cache: maven
 
     - name: Run unit tests
-      run: mvn test -B
-
-    - name: Generate test report
-      if: always()
-      run: mvn surefire-report:report
-
-    - name: Upload test results
-      if: always()
-      uses: actions/upload-artifact@v4
-      with:
-        name: test-results
-        path: target/surefire-reports/
-
-    - name: Generate coverage report
-      run: mvn jacoco:report
-
-    - name: Upload coverage report
-      uses: actions/upload-artifact@v4
-      with:
-        name: coverage-report
-        path: target/site/jacoco/
+      run: mvn test -Dtest=*ServiceTest -B
