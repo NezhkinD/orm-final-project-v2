@@ -1,5 +1,6 @@
 package org.example.learningplatform.service;
 
+import org.example.learningplatform.LearningPlatformApplication;
 import entity.*;
 import exception.BusinessException;
 import exception.ResourceNotFoundException;
@@ -24,7 +25,7 @@ import static org.assertj.core.api.Assertions.*;
 /**
  * Integration tests for CourseService
  */
-@SpringBootTest
+@SpringBootTest(classes = LearningPlatformApplication.class)
 @ActiveProfiles("test")
 @Transactional
 @TestPropertySource(locations = "classpath:application.properties")
